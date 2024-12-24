@@ -4,17 +4,19 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 5001; // Change this if needed
+const PORT = process.env.PORT; // Change this if needed
 
 // Middleware
-app.use(cors());
+app.use(cors(
+    {
+        origin:"http://localhost:5173",
+        methods:["GET","POST","PUT","DELETE"]
+    }
+));
 app.use(bodyParser.json());
 
 // MongoDB Connection
-mongoose.connect('mongodb://127.0.0.1:27017/tododata', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
+mongoose.connect(process.env.MONGODB_URL)
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.error('MongoDB connection error:', err));
 
