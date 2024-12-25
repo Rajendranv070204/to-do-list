@@ -9,7 +9,7 @@ const PORT = process.env.PORT; // Change this if needed
 // Middleware
 app.use(cors(
     {
-        origin:"http://localhost:5173",
+        origin:process.env.FRONTEND_URL,
         methods:["GET","POST","PUT","DELETE"]
     }
 ));
@@ -38,6 +38,11 @@ app.post('/rj/tasks', async (req, res) => {
         res.status(400).json({ error: error.message });
     }
 });
+
+//home route
+app.get('/',(req,res)=>{
+    res.json({message: "Todo backend service"})
+})
 
 // Get all Todos
 app.get('/rj/tasks', async (req, res) => {

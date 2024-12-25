@@ -1,1 +1,3 @@
-mongodb+srv://rajendranv070204:<db_password>@cluster1.1lfme.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1
+CCRKQhYDJXInBvqf
+
+mongodb+srv://rajendranv070204:CCRKQhYDJXInBvqf@cluster0.2pma5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
