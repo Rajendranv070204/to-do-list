@@ -10,7 +10,7 @@ const PORT = process.env.PORT; // Change this if needed
 // Middleware
 app.use(cors(
     {
-        origin:process.env.FRONTEND_URL,
+        origin:`${process.env.FRONTEND_URL}`,
         methods:["GET","POST","PUT","DELETE"]
     }
 ));
