@@ -13,17 +13,17 @@ const App = () => {
     }, []);
 
     const fetchTodolists = async () => {
-        const response = await axios.get(`${process.env.BACKEND_URL}/rj/tasks`);
+        const response = await axios.get(`${import.meta.env.BACKEND_URL}/rj/tasks`);
         setTodolist(response.data);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (editing) {
-            await axios.put(`${process.env.BACKEND_URL}/rj/tasks/${editing}`, { task });
+            await axios.put(`${import.meta.env.BACKEND_URL}/rj/tasks/${editing}`, { task });
             setEditing(null);
         } else {
-            await axios.post(`${process.env.BACKEND_URL}/rj/tasks`, { task });
+            await axios.post(`${import.meta.env.BACKEND_URL}/rj/tasks`, { task });
         }
         setTask('');
         fetchTodolists();
@@ -38,7 +38,7 @@ const App = () => {
     };
 
     const handleDelete = async (id) => {
-        await axios.delete(`${process.env.BACKEND_URL}/rj/tasks/${id}`);
+        await axios.delete(`${import.meta.env.BACKEND_URL}/rj/tasks/${id}`);
         fetchTodolists();
     };
 
